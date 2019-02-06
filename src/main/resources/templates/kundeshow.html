@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>ID</th>
+
+        <th>Kundename</th>
+
+        <th>Kundeland</th>
+
+        <th>Kundeadresse</th>
+
+        <th>Telefon</th>
+
+        <th>Mob Nummer</th>
+
+        <th>E-mail</th>
+
+    </tr>
+
+
+    <tr th:each="kun : ${kundeshow}">
+
+        <td th:utext="${kun.id}"></td>
+
+        <td th:utext="${kun.kunName}"></td>
+
+        <td th:utext="${kun.kunLand}"></td>
+
+        <td th:utext="${kun.kunAdress}"></td>
+
+        <td th:utext="${kun.kunTelNum}"></td>
+
+        <td th:utext="${kun.kunMobil}"></td>
+
+        <td th:utext="${kun.kunEMail}"></td>
+
+    </tr>
+
+</table>
+</body>
+</html>

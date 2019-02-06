@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fit Database</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="tut">
+        <h1 class="ang">Angebotsgenerator</h1>
+    </div>
+
+   <p style="position: absolute"><img src="/uploads/Cover.jpg" align="left" width="370" height="170"></p>
+
+    <ul class="mn">
+        <li><a>Angebots </a>
+            <ul class="mn">
+                <li><a th:href="@{/angebotcreate}">Add Angebot</a></li>
+                <li><a th:href="@{/angebotshow}">Show Angebots</a></li>
+            </ul>
+        </li>
+
+
+    </ul>
+    <br/>
+
+
+    <ul class="mn">
+
+        <li><a>Angebot Typs</a>
+            <ul class="mn">
+                <li><a th:href="@{angebottypcreate}">Create</a></li>
+                <li><a th:href="@{angebottypshow}">Show</a></li>
+            </ul>
+        </li>
+
+
+        <li><a>Systems</a>
+            <ul class="mn">
+                <li><a th:href="@{systemcreate}">Create</a></li>
+                <li><a th:href="@{systemshow}">Show</a></li>
+            </ul>
+        </li>
+
+        <li><a>Produkts</a>
+            <ul class="mn">
+                <li><a th:href="@{produktcreate}">Create</a></li>
+                <li><a th:href="@{produktshow}">Show</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <br/>
+
+    <ul class="mn">
+
+    <li><a>Kunde</a>
+        <ul class="mn">
+            <li><a th:href="@{/kundecreate}">Create</a></li>
+            <li><a th:href="@{/kundeshow}">Show</a></li>
+        </ul>
+    </li>
+
+
+    <li><a>Mitarbeiter</a>
+        <ul class="mn">
+            <li><a th:href="@{mitarbeitercreate}">Create</a></li>
+            <li><a th:href="@{mitarbeitershow}">Show</a></li>
+        </ul>
+    </li>
+
+
+
+    <li><a>Upload Files</a>
+        <ul class="mn">
+            <li><a th:href="@{/upload}">Create</a></li>
+        </ul>
+    </li>
+
+    </ul>
+
+
+</body>
+</html>

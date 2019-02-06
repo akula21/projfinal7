@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/systemcreate}"
+      th:object="${systemmodel}" method="POST">
+
+    System Name:
+    <input type="text" th:field="*{sysName}"/>
+    <br/>
+    Angebot Typ:
+    <select  th:field = "*{angebottyp}">
+        <option value="">--</option>
+        <option th:each="ang:${angTyps}"
+                th:value="${ang.id}"
+                th:utext="${ang.angTypName}">
+    </select>
+    <br/>
+    Systembeschreibung:
+    <textarea type ="text" th:field ="*{sysBeschreibung}"></textarea>
+    <br/>
+
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

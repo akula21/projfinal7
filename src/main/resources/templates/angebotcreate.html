@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Angebot Create</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scc.js"></script>
+
+</head>
+<body>
+
+    <p> Angebot Information</p>
+<form th:action="@{/angebotcreate}"
+      th:object="${pojo1}" method="POST">
+
+    <!--<button type="button" onclick="increase()">show</button>-->
+    <!--<input type="text" id="text" th:field="*{amount}">-->
+
+    Beschreibung:
+    <textarea type="text" th:field = "*{angBeschreibung}"></textarea>
+    <br/>
+
+    Angebotssteller:
+    <td>
+        <select th:field = "*{mitarbeiteR}">
+            <option value="">--</option>
+            <option th:each="mitarbeiter:${mitarbeiters}"
+                    th:value="${mitarbeiter.id}"
+                    th:utext="${mitarbeiter.mitName}+${mitarbeiter.mitVorName}">
+        </select>
+    </td>
+    <br/>
+
+    Kunde:
+    <td>
+        <select  th:field = "*{kundE}">
+            <option value="">--</option>
+            <option th:each="kunden:${kundens}"
+                    th:value="${kunden.id}"
+                    th:utext="${kunden.kunName}">
+        </select>
+    </td>
+    <br/>
+
+    <h1>Staelle</h1>
+
+
+    Anz der Staelle:
+    <input type="number" th:field = "*{anzDerStaelle}">
+    <br/>
+
+    StallLenge:
+    <input type="number" step="any" th:field = "*{stallLange}">
+    <br/>
+
+    Stllbreite:
+    <input type="number" step="any" th:field = "*{stallBreite}">
+    <br/>
+
+    Firsthohe:
+    <input type="number" step="any" th:field = "*{firstHohe}">
+    <br/>
+
+    Traufenhohe:
+    <input type="number" step="any" th:field = "*{traufenHohe}">
+    <br/>
+
+
+    Picture1:
+    <input type="text" th:field = "*{path}">
+    <br/>
+
+    Picture2:
+    <input type="text" th:field = "*{path2}">
+    <br/>
+
+    Picture3:
+    <input type="text" th:field = "*{path3}">
+    <br/>
+
+    <h1>Kaefig</h1>
+
+    Anzahl Reihen:
+    <input type="number" th:field = "*{kaefigReihen}">
+    <br/>
+
+    Anzahl Etagen:
+    <input type="number" th:field = "*{kaefigEtagen}">
+    <br/>
+
+    Reihen Breite:
+    <input type="number" step="any" th:field = "*{kefReihenBreite}">
+    <br/>
+
+    KaefigLaenge:
+    <input type="number" step="any" th:field = "*{kaefLange}">
+    <br/>
+
+    Kaefig Tiefe:
+    <input type="number" step="any" th:field = "*{kaefTiefe}">
+    <br/>
+
+    Anzahl der Kaefig Je Etage:
+    <input type="number" th:field = "*{anzDerKaefJeEtage}">
+    <br/>
+
+    Anzahl der Tiere beim Einstallen:
+    <input type="number" th:field = "*{anzDerTierEinstallen}">
+    <br/>
+
+    Anzahl der Tiere beim Ausstallen:
+    <input type="number" th:field = "*{anzDerTireAusstallen}">
+    <br/>
+
+    Kopfteil Laenge:
+    <input type="number" step="any" th:field = "*{kopfteilLange}">
+    <br/>
+
+    Tier Gewicht:
+    <input type="number" th:field = "*{tierGewicht}">
+    <br/>
+
+    Angebottyp:
+    <td>
+        <select  th:field = "*{angebotTyp}">
+            <option value="">--</option>
+            <option th:name="angTyp"
+                    th:each="anT:${angebottyps}"
+                    th:value="${anT.id}"
+            th:utext="${anT.angTypName}">
+        </select>
+    </td>
+    <br/>
+
+    <button type="button" id="btn" >Add Produkt</button>
+
+    <button type="button" id="btn2">New System</button>
+
+    <div class="sysprod"></div>
+    <div class="sys" id="sys">
+        System:
+        <td>
+            <select  th:field = "*{system1}">
+                <option value="">--</option>
+                <option th:each="sys:${systems}"
+                th:value="${sys.id}"
+                th:utext="${sys.sysName}">
+            </select>
+        </td>
+        <br/>
+
+    </div>
+
+
+    <div class="allprod">
+
+    <div class="prod" id="prod">
+
+            Produkt:
+    <td>
+        <select  th:field = "*{produkt1}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+    </div>
+
+    </div>
+
+    </div>
+
+            Produkt:
+    <td>
+        <select  th:field = "*{produkt2}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+            Produkt:
+    <td>
+        <select  th:field = "*{produkt3}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+            Produkt:
+    <td>
+        <select  th:field = "*{produkt4}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+            <!--Produkt:-->
+    <!--<td>-->
+        <!--<select  th:field = "*{produkt4}">-->
+            <!--<option value="">&#45;&#45;</option>-->
+            <!--<option th:each="prd:${prodkts}"-->
+                    <!--th:value="${prd.id}"-->
+                    <!--th:utext="${prd.prodName}">-->
+        <!--</select>-->
+    <!--</td>-->
+    <!--<br/>-->
+
+            <!--Produkt:-->
+    <!--<td>-->
+        <!--<select  th:field = "*{produkt5}">-->
+            <!--<option value="">&#45;&#45;</option>-->
+            <!--<option th:each="prd:${prodkts}"-->
+                    <!--th:value="${prd.id}"-->
+                    <!--th:utext="${prd.prodName}">-->
+        <!--</select>-->
+    <!--</td>-->
+    <!--<br/>-->
+
+    <!--Produkt:-->
+    <!--<td>-->
+        <!--<select  th:field = "*{produkt6}">-->
+            <!--<option value="">&#45;&#45;</option>-->
+            <!--<option th:each="prd:${prodkts}"-->
+                    <!--th:value="${prd.id}"-->
+                    <!--th:utext="${prd.prodName}">-->
+        <!--</select>-->
+    <!--</td>-->
+    <!--<br/>-->
+    2
+    System:
+    <td>
+        <select  th:field = "*{system2}">
+            <option value="">--</option>
+            <option th:each="sys:${systems}"
+                    th:value="${sys.id}"
+                    th:utext="${sys.sysName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt21}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt22}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt23}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt24}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    <!--Produkt:-->
+    <!--<td>-->
+        <!--<select  th:field = "*{produkt24}">-->
+            <!--<option value="">&#45;&#45;</option>-->
+            <!--<option th:each="prd:${prodkts}"-->
+                    <!--th:value="${prd.id}"-->
+                    <!--th:utext="${prd.prodName}">-->
+        <!--</select>-->
+    <!--</td>-->
+    <!--<br/>-->
+
+    <!--Produkt:-->
+    <!--<td>-->
+        <!--<select  th:field = "*{produkt25}">-->
+            <!--<option value="">&#45;&#45;</option>-->
+            <!--<option th:each="prd:${prodkts}"-->
+                    <!--th:value="${prd.id}"-->
+                    <!--th:utext="${prd.prodName}">-->
+        <!--</select>-->
+    <!--</td>-->
+    <!--<br/>-->
+
+    <!--Produkt:-->
+    <!--<td>-->
+        <!--<select  th:field = "*{produkt26}">-->
+            <!--<option value="">&#45;&#45;</option>-->
+            <!--<option th:each="prd:${prodkts}"-->
+                    <!--th:value="${prd.id}"-->
+                    <!--th:utext="${prd.prodName}">-->
+        <!--</select>-->
+    <!--</td>-->
+    <!--<br/>-->
+
+    3
+    System:
+    <td>
+        <select  th:field = "*{system3}">
+            <option value="">--</option>
+            <option th:each="sys:${systems}"
+                    th:value="${sys.id}"
+                    th:utext="${sys.sysName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt41}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt42}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt43}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    Produkt:
+    <td>
+        <select  th:field = "*{produkt44}">
+            <option value="">--</option>
+            <option th:each="prd:${prodkts}"
+                    th:value="${prd.id}"
+                    th:utext="${prd.prodName}">
+        </select>
+    </td>
+    <br/>
+
+    <!--Produkt:-->
+    <!--<td>-->
+        <!--<select  th:field = "*{produkT}">-->
+            <!--<option value="">&#45;&#45;</option>-->
+            <!--<option th:each="prd:${prodkts}"-->
+                    <!--th:value="${prd.id}"-->
+                    <!--th:utext="${prd.prodName}">-->
+        <!--</select>-->
+    <!--</td>-->
+    <!--<br/>-->
+
+
+
+
+
+
+    <input type="submit" value="Submit" />
+
+</form>
+
+
+</body>
+</html>

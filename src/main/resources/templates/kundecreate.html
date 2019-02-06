@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/kundecreate}"
+      th:object="${kundemodel}" method="POST">
+
+    Kundename:
+    <input type="text" th:field = "*{kunName}" />
+    <br/>
+
+    Kundeland:
+    <input type="text" th:field = "*{kunLand}"/>
+    <br/>
+
+    Kundeadresse:
+    <input type="text" th:field = "*{kunAdress}"/>
+    <br/>
+
+    Telefon:
+    <input type="text" th:field = "*{kunTelNum}"/>
+    <br/>
+
+    Modilnummer
+    <input type="text" th:field = "*{kunMobil}"/>
+    <br/>
+
+    E-mail:
+    <input type="text" th:field = "*{kunEMail}"/>
+    <br/>
+
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" th:href="@{/css/style.css}">-->
+</head>
+<body>
+
+<div class="hdr" align="center">
+    <h1>FIT Farm Innovation Team GmbH</h1>
+    <h2>Webereistrasse 1a</h2>
+    <h2>48566 Steinfurt</h2>
+    <h3>Germany</h3>
+</div>
+
+<br/>
+
+<div align="center">
+    <img src="/uploads/Cover.jpg" width="370" height="170">
+</div>
+
+<br/>
+
+<div class="hdr" align="center">
+    <h1 th:utext="${angebot.kundens.kunName}"></h1>
+    <h2 th:utext="${angebot.kundens.kunAdress}"></h2>
+    <h3 th:utext="${angebot.kundens.kunLand}"></h3>
+</div>
+
+<br/>
+
+<img src="/uploads/">
+
+<tr th:each ="angeboti : ${angebot}">
+    <a th:href="@{'/oneangebot/' + ${angebot.id}}"></a>
+</tr>
+<br/>
+<div align="center">
+
+    Anz der Staelle :
+            <td th:utext="${angebot.anzDerStaelle}"></td>
+            <br/>
+    StallLenge :
+            <td th:utext="${angebot.stallLange}"></td>
+            <br/>
+    Stllbreite :
+            <td th:utext="${angebot.stallBreite}"></td>
+            <br/>
+    Firsthohe :
+            <td th:utext="${angebot.firstHohe}"></td>
+            <br/>
+    Traufenhohe :
+            <td th:utext="${angebot.traufenHohe}"></td>
+            <br/>
+    GiebelFlache :
+            <td th:utext="${(angebot.stallLange*angebot.traufenHohe)+((angebot.firstHohe - angebot.traufenHohe)*angebot.stallBreite/2)}"></td>
+            <br/>
+    StallFlache :
+            <td th:utext="${(angebot.stallLange)*(angebot.stallBreite)}"></td>
+            <br/>
+
+    Kaefig :
+    <th:block th:each="kaef:${angebot.kaefig}">
+    <br/>
+    Anzahl Reihen :
+        <td th:utext="${kaef.kaefigReihen}"></td>
+                <br/>
+    Anzahl Etagen :
+        <td th:utext="${kaef.kaefigEtagen}"></td>
+                <br/>
+    Reihen Breite :
+        <td th:utext="${kaef.kefReihenBreite}"></td>
+                <br/>
+    KaefigLaenge :
+        <td th:utext="${kaef.kaefLange}"></td>
+                <br/>
+    Kaefig Tiefe :
+        <td th:utext="${kaef.kaefTiefe}"></td>
+                <br/>
+    Kaefig Flache :
+        <td th:utext="${(kaef.kaefLange)*(kaef.kaefTiefe)}"></td>
+                <br/>
+    Anzahl der Linien :
+        <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)}"></td>
+                <br/>
+    Anzahl der Kaefig Je Etage :
+        <td th:utext="${kaef.anzDerKaefJeEtage}"></td>
+                <br/>
+    Anzahl der Kaefig Je Reihe :
+        <td th:utext="${(kaef.kaefigEtagen) * (kaef.anzDerKaefJeEtage)}"></td>
+                <br/>
+    Anzahl der Kaefig im Stall :
+        <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)*(kaef.anzDerKaefJeEtage)}"></td>
+                <br/>
+    Anzahl der Tiere beim Einstallen :
+        <td th:utext="${kaef.anzDerTierEinstallen}"></td>
+                <br/>
+    Anzahl der Tiere beim Ausstallen :
+        <td th:utext="${kaef.anzDerTireAusstallen}"></td>
+                <br/>
+    Tier Bestand am Mastende :
+        <td th:utext="${(kaef.anzDerTierEinstallen)/(kaef.anzDerTireAusstallen)*100}">%</td>
+                <br/>
+    Gesamtzahl der Kaefige :
+        <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)*(kaef.anzDerKaefJeEtage)}"></td>
+                <br/>
+    Laenge der KaefigReihe ohne KopfTeil :
+        <td th:utext="${(kaef.kaefLange)*(kaef.anzDerKaefJeEtage)}"></td>
+                <br/>
+    Kopfteil Laenge :
+        <td th:utext="${angebot.kopfteilLange}"></td>
+                <br/>
+    Laenge der KaefigReihe mit KopfTeil :
+        <td th:utext="${(angebot.kopfteilLange)+((kaef.kaefLange)*(kaef.anzDerKaefJeEtage))}"></td>
+                <br/>
+    </th:block>
+
+    <th:block th:each="a:${angebot.verbindung}">
+
+        <b><td th:utext="${a.angebottyp.angTypName}"></td>/<td th:utext="${a.systems.sysName}"></td></b>
+        <br/>
+        Produktname:
+        <td th:utext="${a.produkts.prodName}"></td>
+        <br/>
+        Beschreibung:
+        <td th:utext="${a.produkts.prodBeschreibung}"></td>
+        <br/>
+    </th:block>
+
+
+
+</div>
+
+
+
+</body>
+</html>

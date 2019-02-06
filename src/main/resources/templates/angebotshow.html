@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Angebots</title>
+</head>
+<body>
+    <table border="1">
+
+        <tr>
+            <th>Angebot ID</th>
+
+            <th>Beschreibung</th>
+
+            <th>Angebotssteller</th>
+
+            <th>Kunde</th>
+
+            <th>Anz der Staelle</th>
+
+            <th>StallLenge</th>
+
+            <th>Stllbreite</th>
+
+            <th>Firsthohe</th>
+
+            <th>Traufenhohe</th>
+
+            <th>GiebelFlache</th>
+
+            <th>StallFlache</th>
+
+            <th>Anzahl Reihen</th>
+
+            <th>Anzahl Etagen</th>
+
+            <th>Reihen Breite</th>
+
+            <th>KaefigLaenge</th>
+
+            <th>Kaefig Tiefe</th>
+
+            <th>Kaefig Flache</th>
+
+            <th>Anzahl der Linien</th>
+
+            <th>Anzahl der Kaefig Je Etage</th>
+
+            <th>Anzahl der Kaefig Je Reihe</th>
+
+            <th>Anzahl der Kaefig im Stall </th>
+
+            <th>Anzahl der Tiere beim Einstallen</th>
+
+            <th>Anzahl der Tiere beim Ausstallen</th>
+
+            <th>Tier Bestand am Mastende</th>
+
+            <th>Gesamtzahl der Kaefige</th>
+
+            <th>Laenge der KaefigReihe ohne KopfTeil</th>
+
+            <th>Kopfteil Laenge</th>
+
+            <th>Laenge der KaefigReihe mit KopfTeil</th>
+
+            <!--<th>Anzahl der Tiere beim Enstallen, gesamt:</th>-->
+
+            <!--<th>Anzahl der Tiere beim Ausstallen, gesamt:</th>-->
+
+            <!--<th>Tierbestand am Mastende, %:</th>-->
+
+            <th>Tier Gewicht</th>
+
+            <!--<th>Gesamtgewicht Gewicht</th>-->
+
+            <!--<th>Gesamtgewicht pro m²</th>-->
+
+            <th>Angebottyp</th>
+
+            <th>Systems</th>
+
+            <th>Produkts</th>
+
+            <th>Picture1</th>
+
+            <th>Picture2</th>
+
+            <th>Picture3</th>
+
+            <th>Upadate</th>
+
+            <th>Delete</th>
+
+
+
+        </tr>
+
+        <tr th:each="angebt : ${angebotshow}">
+
+            <td th:utext="${angebt.id}"></td>
+
+            <td th:utext="${angebt.angBeschreibung}"></td>
+
+            <td th:utext="${angebt.mitarbeiter.mitName} + ${angebt.mitarbeiter.mitVorName}"></td>
+
+            <td th:utext="${angebt.kundens.kunName}"></td>
+
+            <td th:utext="${angebt.anzDerStaelle}"></td>
+
+            <td th:utext="${angebt.stallLange}"></td>
+
+            <td th:utext="${angebt.stallBreite}"></td>
+
+            <td th:utext="${angebt.firstHohe}"></td>
+
+            <td th:utext="${angebt.traufenHohe}"></td>
+
+            <td th:utext="${(angebt.stallLange*angebt.traufenHohe)+((angebt.firstHohe - angebt.traufenHohe)*angebt.stallBreite/2)}"></td>
+
+            <td th:utext="${(angebt.stallLange)*(angebt.stallBreite)}"></td>
+
+
+            <th:block th:each="kaef:${angebt.kaefig}">
+
+                <td th:utext="${kaef.kaefigReihen}"></td>
+
+                <td th:utext="${kaef.kaefigEtagen}"></td>
+
+                <td th:utext="${kaef.kefReihenBreite}"></td>
+
+                <td th:utext="${kaef.kaefLange}"></td>
+
+                <td th:utext="${kaef.kaefTiefe}"></td>
+
+                <td th:utext="${(kaef.kaefLange)*(kaef.kaefTiefe)}"></td>
+
+                <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)}"></td>
+
+                <td th:utext="${kaef.anzDerKaefJeEtage}"></td>
+
+                <td th:utext="${(kaef.kaefigEtagen) * (kaef.anzDerKaefJeEtage)}"></td>
+
+                <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)*(kaef.anzDerKaefJeEtage)}"></td>
+
+                <td th:utext="${kaef.anzDerTierEinstallen}"></td>
+
+                <td th:utext="${kaef.anzDerTireAusstallen}"></td>
+
+                <td th:utext="${(kaef.anzDerTierEinstallen)/(kaef.anzDerTireAusstallen)*100}">%</td>
+
+                <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)*(kaef.anzDerKaefJeEtage)}"></td>
+
+                <td th:utext="${(kaef.kaefLange)*(kaef.anzDerKaefJeEtage)}"></td>
+
+                <td th:utext="${angebt.kopfteilLange}"></td>
+
+                <td th:utext="${(angebt.kopfteilLange)+((kaef.kaefLange)*(kaef.anzDerKaefJeEtage))}"></td>
+
+                <!--<td th:utext="${#}"></td>-->
+
+                <!--<td th:utext="${#}"></td>-->
+
+                <!--<td th:utext="${#}"></td>-->
+
+                <td th:utext="${angebt.tierGewicht}"></td>
+
+                <!--<td th:utext="${#}"></td>-->
+
+                <!--<td th:utext="${#}"></td>-->
+
+            </th:block>
+
+            <th:block th:each="a:${angebt.verbindung}">
+
+                <td th:utext="${a.angebottyp.angTypName}"></td>
+
+                <td th:utext="${a.systems.sysName}"></td>
+
+                <td th:utext="${a.produkts.prodName}"></td>
+
+            </th:block>
+            <!--<th:block th:each="ff:${angebt.verbindung}">-->
+
+                <!--<th:block th:each="gg:${verbindung.angebotTyp}">-->
+
+                <!--<td th:utext="${gg.angTypName}"></td>-->
+
+                <!--</th:block>-->
+
+            <!--</th:block>-->
+
+
+
+            <th:block th:each="pImg : ${angebt.imgg}">
+
+                <td><a th:href="'/uploads/' + ${pImg.path}">Picture</a></td>
+
+                <td><a th:href="'/uploads/' + ${pImg.path2}">Picture</a></td>
+
+                <td><a th:href="'/uploads/' + ${pImg.path3}">Picture</a></td>
+
+            </th:block>
+
+                <td><a th:href="@{'/angebotedit/' + ${angebt.id}}">Update</a></td>
+
+                <td><a th:href="@{'/delete/' + ${angebt.id}}">Delete</a></td>
+
+        </tr>
+
+    </table>
+
+</body>
+
+</html>
+

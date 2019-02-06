@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+
+        <th>Id</th>
+
+        <th>Angebottyp Name</th>
+
+        <th>Angebottyp Beschreibung</th>
+
+    </tr>
+    <tr th:each ="at:${angebottypshow}">
+
+        <td th:utext="${at.id}">...</td>
+
+        <td th:utext="${at.angTypName}"></td>
+
+        <td th:utext="${at.angTypBeschreibung}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

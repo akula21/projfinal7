@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+
+        <th>Id</th>
+
+        <th>System Name</th>
+
+        <th>Angebot Typ</th>
+
+        <th>System Beschreibung</th>
+
+    </tr>
+    <tr th:each ="ss:${systemshow}">
+
+        <td th:utext="${ss.id}">...</td>
+
+        <td th:utext="${ss.sysName}"></td>
+
+        <td th:utext="${ss.angebottyp.angTypName}"></td>
+
+        <td th:utext="${ss.sysBeschreibung}">...</td>
+
+    </tr>
+</table>
+</body>
+</html>

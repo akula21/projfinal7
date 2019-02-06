@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <th>ID</th>
+
+    <th>Name</th>
+
+    <th>Vorname</th>
+
+    <th>Mob. Nummer</th>
+
+    <th>Tel Nummer</th>
+
+    <th>E-mail</th>
+
+    <tr th:each="mit : ${mitarbeitershow}">
+
+        <td th:utext="${mit.id}"></td>
+
+        <td th:utext="${mit.mitName}"></td>
+
+        <td th:utext="${mit.mitVorName}"></td>
+
+        <td th:utext="${mit.mitMobNum}"></td>
+
+        <td th:utext="${mit.mitTelNum}"></td>
+
+        <td th:utext="${mit.mitEMail}"></td>
+
+    </tr>
+
+</table>
+</body>
+</html>

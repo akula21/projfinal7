@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/angebottypcreate}"
+      th:object="${angebottypmodel}" method="POST">
+
+    Angebottyp Name:
+    <input type="text" th:field="*{angTypName}"/>
+    <br/>
+     <!--Typ:-->
+    <!--<select  th:field = "*{}">-->
+        <!--<option value="">&#45;&#45;</option>-->
+        <!--<option th:each="ang:${angTyps}"-->
+                <!--th:value="${ang.id}"-->
+                <!--th:utext="${ang.angTypName}">-->
+    <!--</select>-->
+    <!--<br/>-->
+    Angebottypbeschreibung:
+    <textarea type ="text" th:field ="*{angTypBeschreibung}"></textarea>
+    <br/>
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

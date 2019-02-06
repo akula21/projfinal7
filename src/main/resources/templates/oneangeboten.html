@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" th:href="@{/css/style.css}">-->
+</head>
+<body>
+
+<div class="hdr" align="center">
+    <h1>FIT Farm Innovation Team GmbH</h1>
+    <h2>Webereistrasse 1a</h2>
+    <h2>48566 Steinfurt</h2>
+    <h3>Germany</h3>
+</div>
+
+<br/>
+
+<div align="center">
+    <img src="/uploads/Cover.jpg" width="370" height="170">
+</div>
+
+<br/>
+
+<div class="hdr" align="center">
+    <h1 th:utext="${angeboten.kundens.kunName}"></h1>
+    <h2 th:utext="${angeboten.kundens.kunAdress}"></h2>
+    <h3 th:utext="${angeboten.kundens.kunLand}"></h3>
+</div>
+
+<br/>
+
+<tr th:each ="angeboti : ${angeboten}">
+    <a th:href="@{'/oneangeboten/' + ${angeboten.id}}"></a>
+</tr>
+<br/>
+<div align="center">
+
+    Number of the Houses :
+    <td th:utext="${angeboten.anzDerStaelle}"></td>
+    <br/>
+    House lenght :
+    <td th:utext="${angeboten.stallLange}"></td>
+    <br/>
+    House width :
+    <td th:utext="${angeboten.stallBreite}"></td>
+    <br/>
+    Bench heigh :
+    <td th:utext="${angeboten.firstHohe}"></td>
+    <br/>
+    Eaves Heigh :
+    <td th:utext="${angeboten.traufenHohe}"></td>
+    <br/>
+    Gabel wall area :
+    <td th:utext="${(angeboten.stallLange*angeboten.traufenHohe)+((angeboten.firstHohe - angeboten.traufenHohe)*angeboten.stallBreite/2)}"></td>
+    <br/>
+    House area :
+    <td th:utext="${(angeboten.stallLange)*(angeboten.stallBreite)}"></td>
+    <br/>
+
+    Cage :
+    <th:block th:each="kaef:${angeboten.kaefig}">
+        <br/>
+        Number of rows :
+        <td th:utext="${kaef.kaefigReihen}"></td>
+        <br/>
+        Number of floors :
+        <td th:utext="${kaef.kaefigEtagen}"></td>
+        <br/>
+        Row width :
+        <td th:utext="${kaef.kefReihenBreite}"></td>
+        <br/>
+        Cage lenght :
+        <td th:utext="${kaef.kaefLange}"></td>
+        <br/>
+        Cage depth :
+        <td th:utext="${kaef.kaefTiefe}"></td>
+        <br/>
+        Cage area :
+        <td th:utext="${(kaef.kaefLange)*(kaef.kaefTiefe)}"></td>
+        <br/>
+        Number of rows :
+        <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)}"></td>
+        <br/>
+        Number of Cages for each floor :
+        <td th:utext="${kaef.anzDerKaefJeEtage}"></td>
+        <br/>
+        Number of Cages for each Row :
+        <td th:utext="${(kaef.kaefigEtagen) * (kaef.anzDerKaefJeEtage)}"></td>
+        <br/>
+        Number of cages in House :
+        <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)*(kaef.anzDerKaefJeEtage)}"></td>
+        <br/>
+        Number of DOC's \ each cage :
+        <td th:utext="${kaef.anzDerTierEinstallen}"></td>
+        <br/>
+        Number of birds before harvesting \ each cage :
+        <td th:utext="${kaef.anzDerTireAusstallen}"></td>
+        <br/>
+        Liveability :
+        <td th:utext="${(kaef.anzDerTierEinstallen)/(kaef.anzDerTireAusstallen)*100}">%</td>
+        <br/>
+        Total number of cages :
+        <td th:utext="${(kaef.kaefigReihen)*(kaef.kaefigEtagen)*(kaef.anzDerKaefJeEtage)}"></td>
+        <br/>
+        Cage row length without front and end unit, m: :
+        <td th:utext="${(kaef.kaefLange)*(kaef.anzDerKaefJeEtage)}"></td>
+        <br/>
+        Front and end unit length, m: :
+        <td th:utext="${angeboten.kopfteilLange}"></td>
+        <br/>
+        Cage row length with front and end unit, m: :
+        <td th:utext="${(angeboten.kopfteilLange)+((kaef.kaefLange)*(kaef.anzDerKaefJeEtage))}"></td>
+        <br/>
+    </th:block>
+
+    <th:block th:each="a:${angeboten.verbindung}">
+
+        <td th:utext="${a.angebottyp.angTypName}"></td>
+        <br/>
+        <td th:utext="${a.systems.sysName}"></td>
+        <br/>
+        <td th:utext="${a.produkts.prodName}"></td>
+        <br/>
+    </th:block>
+
+
+</div>
+
+
+
+</body>
+</html>

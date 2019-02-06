@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/angeboteditsave}"
+      th:object="${anbot}" method="POST">
+
+    Angebot ID:
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    AngebotNummer
+    <input type="number" step="any" th:field = "*{angebotNun}" />
+    <br/>
+
+    Kunde Name
+    <input type="text" step="any" th:field = "*{kundenStamm}" />
+    <br/>
+
+    Produktgruppe EG
+    <input type="text" step="any" th:field = "*{id}" />
+    <br/>
+
+    Angebotssteller
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Logo
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Angebotdatum
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Versandsdatum
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Lieferdatum
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Stalllange
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Stallbreite
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Firsthohe
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Traufenhohe
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Tiergewicht
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    GiebelFlache
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    StallFlache
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Anzahl der Staelle
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Gesamt Preis
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Kafig
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Beschreibung
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Anzahl Reihen
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Anzahl Etagen
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Anzahl der kaefige
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Anzahl der Tier je KAefig beim Einstallen
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+    Anzahl der Tier je KAefig beim Ausstallen
+    <input type="hidden" step="any" th:field = "*{id}" />
+    <br/>
+
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

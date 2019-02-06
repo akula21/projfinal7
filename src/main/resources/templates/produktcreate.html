@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkts</title>
+</head>
+<body>
+<form th:action="@{/produktcreate}"
+      th:object="${produktmodel}" method="POST">
+
+    Produkt Name:
+    <input type="text" th:field="*{prodName}"/>
+    <br/>
+    System:
+    <select  th:field = "*{systems}">
+        <option value="">--</option>
+        <option th:each="sys:${systems}"
+                th:value="${sys.id}"
+                th:utext="${sys.sysName}">
+    </select>
+    <br/>
+
+    ProduktBeschreibung:
+    <textarea type ="text" th:field ="*{prodBeschreibung}"></textarea>
+    <br/>
+
+    Produktprice:
+    <input type="number" th:field="*{prPrice}" >
+    <br>
+
+
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
